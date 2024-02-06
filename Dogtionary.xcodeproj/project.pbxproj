@@ -15,6 +15,7 @@
 		A3F4AD9D2B72F85D003538D9 /* DogtionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AD9C2B72F85D003538D9 /* DogtionaryTests.swift */; };
 		A3F4ADA72B72F85D003538D9 /* DogtionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADA62B72F85D003538D9 /* DogtionaryUITests.swift */; };
 		A3F4ADA92B72F85D003538D9 /* DogtionaryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADA82B72F85D003538D9 /* DogtionaryUITestsLaunchTests.swift */; };
+		A3F4ADB62B72FE9D003538D9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A3F4ADB52B72FE9D003538D9 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A3F4ADA22B72F85D003538D9 /* DogtionaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogtionaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F4ADA62B72F85D003538D9 /* DogtionaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogtionaryUITests.swift; sourceTree = "<group>"; };
 		A3F4ADA82B72F85D003538D9 /* DogtionaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogtionaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A3F4ADB52B72FE9D003538D9 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		A3F4AD792B72F85B003538D9 = {
 			isa = PBXGroup;
 			children = (
+				A3F4ADB52B72FE9D003538D9 /* .gitignore */,
 				A3F4AD842B72F85B003538D9 /* Dogtionary */,
 				A3F4AD9B2B72F85D003538D9 /* DogtionaryTests */,
 				A3F4ADA52B72F85D003538D9 /* DogtionaryUITests */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F4AD922B72F85D003538D9 /* LaunchScreen.storyboard in Resources */,
+				A3F4ADB62B72FE9D003538D9 /* .gitignore in Resources */,
 				A3F4AD8F2B72F85D003538D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
