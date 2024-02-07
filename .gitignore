@@ -88,3 +88,9 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Ignore ds_store file
+.DS_Store
+
+# Ignore Xcode user interface state file
+UserInterfaceState.xcuserstate
