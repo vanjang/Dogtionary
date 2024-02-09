@@ -5,18 +5,18 @@
 //  Created by myung hoon on 07/02/2024.
 //
 
-import Foundation
+import UIKit
 
 struct BreedDetailCellItem {
-    let uuid = UUID()
+    let image: UIImage
 }
 
 extension BreedDetailCellItem : Hashable {
     static func ==(lhs: BreedDetailCellItem, rhs: BreedDetailCellItem) -> Bool {
-        return lhs.uuid == rhs.uuid
+        return lhs.image == rhs.image
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(uuid)
+        hasher.combine(image)
     }
 }

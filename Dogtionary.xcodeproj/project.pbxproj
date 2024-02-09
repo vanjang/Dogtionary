@@ -27,6 +27,17 @@
 		A3F4ADD92B73FDEB003538D9 /* BreedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADD82B73FDEB003538D9 /* BreedDetailViewModel.swift */; };
 		A3F4ADDB2B74204E003538D9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADDA2B74204E003538D9 /* PhotoViewController.swift */; };
 		A3F4ADDD2B742057003538D9 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADDC2B742057003538D9 /* PhotoView.swift */; };
+		A3F4ADDF2B74E7FE003538D9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADDE2B74E7FE003538D9 /* Coordinator.swift */; };
+		A3F4ADE12B74E838003538D9 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE02B74E838003538D9 /* AppFlowCoordinator.swift */; };
+		A3F4ADE32B74EC2E003538D9 /* BreedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE22B74EC2E003538D9 /* BreedCoordinator.swift */; };
+		A3F4ADE52B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE42B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift */; };
+		A3F4ADE72B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift */; };
+		A3F4ADE92B74FD8F003538D9 /* BreedComponentsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE82B74FD8F003538D9 /* BreedComponentsFactory.swift */; };
+		A3F4ADF52B753ABF003538D9 /* BreedListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */; };
+		A3F4ADF72B758807003538D9 /* BreedDetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */; };
+		A3F4ADF92B764398003538D9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADF82B764398003538D9 /* Breed.swift */; };
+		A3F4ADFD2B765DEC003538D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADFC2B765DEC003538D9 /* String+Extension.swift */; };
+		A3F4AE002B767C8D003538D9 /* BreedUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +82,17 @@
 		A3F4ADD82B73FDEB003538D9 /* BreedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModel.swift; sourceTree = "<group>"; };
 		A3F4ADDA2B74204E003538D9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		A3F4ADDC2B742057003538D9 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		A3F4ADDE2B74E7FE003538D9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A3F4ADE02B74E838003538D9 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		A3F4ADE22B74EC2E003538D9 /* BreedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinator.swift; sourceTree = "<group>"; };
+		A3F4ADE42B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinatorDependencyProvider.swift; sourceTree = "<group>"; };
+		A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinatorDependencyProvider.swift; sourceTree = "<group>"; };
+		A3F4ADE82B74FD8F003538D9 /* BreedComponentsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedComponentsFactory.swift; sourceTree = "<group>"; };
+		A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListViewModelType.swift; sourceTree = "<group>"; };
+		A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModelType.swift; sourceTree = "<group>"; };
+		A3F4ADF82B764398003538D9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		A3F4ADFC2B765DEC003538D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedUserCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +147,7 @@
 				A3F4AD932B72F85D003538D9 /* Info.plist */,
 				A3F4ADB72B730086003538D9 /* Common */,
 				A3F4ADB82B730090003538D9 /* Services */,
+				A3F4ADFE2B767C75003538D9 /* UseCase */,
 				A3F4ADC22B73D654003538D9 /* FlowCoordinators */,
 				A3F4ADB92B730099003538D9 /* Features */,
 			);
@@ -151,6 +174,8 @@
 		A3F4ADB72B730086003538D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A3F4ADFB2B765DE4003538D9 /* Extensions */,
+				A3F4ADFA2B765DCC003538D9 /* Utils */,
 				A3F4AD852B72F85B003538D9 /* AppDelegate.swift */,
 				A3F4AD872B72F85B003538D9 /* SceneDelegate.swift */,
 				A3F4AD8E2B72F85D003538D9 /* Assets.xcassets */,
@@ -182,8 +207,10 @@
 				A3F4ADC82B73E2B9003538D9 /* BreedListView.swift */,
 				A3F4AD892B72F85B003538D9 /* BreedListViewController.swift */,
 				A3F4ADCA2B73E312003538D9 /* BreedListCell.swift */,
+				A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */,
 				A3F4ADCC2B73E6A4003538D9 /* BreedListViewModel.swift */,
 				A3F4ADCE2B73EA99003538D9 /* BreedListCellItem.swift */,
+				A3F4ADF82B764398003538D9 /* Breed.swift */,
 			);
 			path = BreedList;
 			sourceTree = "<group>";
@@ -195,6 +222,7 @@
 				A3F4ADD22B73FDBB003538D9 /* BreedDetailViewController.swift */,
 				A3F4ADD42B73FDD0003538D9 /* BreedDetailCell.swift */,
 				A3F4ADD62B73FDE0003538D9 /* BreedDetailCellItem.swift */,
+				A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */,
 				A3F4ADD82B73FDEB003538D9 /* BreedDetailViewModel.swift */,
 			);
 			path = BreedDetail;
@@ -203,6 +231,9 @@
 		A3F4ADC22B73D654003538D9 /* FlowCoordinators */ = {
 			isa = PBXGroup;
 			children = (
+				A3F4ADDE2B74E7FE003538D9 /* Coordinator.swift */,
+				A3F4ADED2B752B54003538D9 /* RootCoordinator */,
+				A3F4ADEB2B752B26003538D9 /* BreedCoordinator */,
 			);
 			path = FlowCoordinators;
 			sourceTree = "<group>";
@@ -214,6 +245,48 @@
 				A3F4ADDC2B742057003538D9 /* PhotoView.swift */,
 			);
 			path = PhotoView;
+			sourceTree = "<group>";
+		};
+		A3F4ADEB2B752B26003538D9 /* BreedCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift */,
+				A3F4ADE82B74FD8F003538D9 /* BreedComponentsFactory.swift */,
+				A3F4ADE22B74EC2E003538D9 /* BreedCoordinator.swift */,
+			);
+			path = BreedCoordinator;
+			sourceTree = "<group>";
+		};
+		A3F4ADED2B752B54003538D9 /* RootCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADE42B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift */,
+				A3F4ADE02B74E838003538D9 /* AppFlowCoordinator.swift */,
+			);
+			path = RootCoordinator;
+			sourceTree = "<group>";
+		};
+		A3F4ADFA2B765DCC003538D9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A3F4ADFB2B765DE4003538D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADFC2B765DEC003538D9 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A3F4ADFE2B767C75003538D9 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,19 +420,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F4ADE72B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift in Sources */,
+				A3F4ADE12B74E838003538D9 /* AppFlowCoordinator.swift in Sources */,
 				A3F4ADD12B73FDAD003538D9 /* BreedDetailView.swift in Sources */,
 				A3F4AD8A2B72F85B003538D9 /* BreedListViewController.swift in Sources */,
+				A3F4ADDF2B74E7FE003538D9 /* Coordinator.swift in Sources */,
 				A3F4AD862B72F85B003538D9 /* AppDelegate.swift in Sources */,
 				A3F4AD882B72F85B003538D9 /* SceneDelegate.swift in Sources */,
+				A3F4ADF72B758807003538D9 /* BreedDetailViewModelType.swift in Sources */,
 				A3F4ADD32B73FDBB003538D9 /* BreedDetailViewController.swift in Sources */,
 				A3F4ADCD2B73E6A4003538D9 /* BreedListViewModel.swift in Sources */,
 				A3F4ADD92B73FDEB003538D9 /* BreedDetailViewModel.swift in Sources */,
+				A3F4ADF52B753ABF003538D9 /* BreedListViewModelType.swift in Sources */,
+				A3F4AE002B767C8D003538D9 /* BreedUserCase.swift in Sources */,
 				A3F4ADCF2B73EA99003538D9 /* BreedListCellItem.swift in Sources */,
+				A3F4ADFD2B765DEC003538D9 /* String+Extension.swift in Sources */,
+				A3F4ADE92B74FD8F003538D9 /* BreedComponentsFactory.swift in Sources */,
 				A3F4ADD72B73FDE0003538D9 /* BreedDetailCellItem.swift in Sources */,
 				A3F4ADDD2B742057003538D9 /* PhotoView.swift in Sources */,
 				A3F4ADD52B73FDD0003538D9 /* BreedDetailCell.swift in Sources */,
 				A3F4ADC92B73E2B9003538D9 /* BreedListView.swift in Sources */,
+				A3F4ADE52B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift in Sources */,
 				A3F4ADCB2B73E312003538D9 /* BreedListCell.swift in Sources */,
+				A3F4ADE32B74EC2E003538D9 /* BreedCoordinator.swift in Sources */,
+				A3F4ADF92B764398003538D9 /* Breed.swift in Sources */,
 				A3F4ADDB2B74204E003538D9 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

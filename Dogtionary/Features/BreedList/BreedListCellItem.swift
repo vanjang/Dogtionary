@@ -9,9 +9,9 @@ import Foundation
 
 struct BreedListCellItem {
     let breedName: String
-    let hasSubBreeds: Bool
+    let subBreeds: [BreedListCellItem]
     let isSubBreed: Bool
-    let isExpanded: Bool
+    let isAll: Bool
 }
 
 extension BreedListCellItem: Hashable {

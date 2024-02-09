@@ -19,7 +19,6 @@ final class BreedDetailCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(dogImageView)
         setupUI()
     }
     
@@ -33,6 +32,8 @@ final class BreedDetailCell: UICollectionViewCell {
     }
     
     private func setupUI() {
+        contentView.addSubview(dogImageView)
+        
         dogImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         dogImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         dogImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
