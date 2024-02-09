@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import Combine
 
-class BreedListViewController: UIViewController {    
+class BreedListViewController: UIViewController {
+    private var cancellables: [AnyCancellable] = []
+    private let viewModel: BreedListViewModelType
+    private let selection = PassthroughSubject<String, Never>()
+    private let search = PassthroughSubject<String, Never>()
+    private let appear = PassthroughSubject<Void, Never>()
+    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
@@ -22,29 +29,73 @@ class BreedListViewController: UIViewController {
     
     private lazy var dataSource = makeDataSource()
     
+    init(viewModel: BreedListViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // temp data
-        let temp: [BreedListCellItem] = [BreedListCellItem(breedName: "!", hasSubBreeds: false, isSubBreed: false, isExpanded: false),
-                                         BreedListCellItem(breedName: "2", hasSubBreeds: false, isSubBreed: false, isExpanded: false),
-                                         BreedListCellItem(breedName: "3", hasSubBreeds: false, isSubBreed: false, isExpanded: false)]
-        update(with: temp)
+        bind(viewModel: viewModel)
         configure()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        notifyFetching()
+    }
+
     override func loadView() {
         super.loadView()
         self.view = BreedListView()
     }
     
+    private func bind(viewModel: BreedListViewModelType) {
+        let input = BreedSearchViewModelInput(appear: appear.eraseToAnyPublisher(),
+                                               search: search.eraseToAnyPublisher(),
+                                               selection: selection.eraseToAnyPublisher())
+
+        let output = viewModel.transform(input: input)
+
+        output.sink(receiveValue: {[unowned self] state in
+            self.updateDataSourceBy(state)
+            self.baseView.updateState(state)
+        }).store(in: &cancellables)
+        
+
+    }
+    
+    private func updateDataSourceBy(_ state: BreedSearchState) {
+        switch state {
+        case .success(let items): update(with: items)
+        default: update(with: [])
+        }
+    }
+    
     private func configure() {
+        // nav bar setup
+        title = "Dogtionary"
         navigationItem.searchController = self.searchController
+        
+        // searchVC setup
         searchController.isActive = true
         
+        // view setup
         baseView.tableView.delegate = self
         baseView.tableView.dataSource = dataSource
-        
-        title = "Dogtionary"
+        baseView.stateButton.addTarget(self, action: #selector(notifyFetching), for: .touchUpInside)
+    }
+    
+    @objc func notifyFetching() {
+        appear.send(())
+    }
+    
+    deinit {
+        print("BreedListViewController is deinitialised")
     }
     
 }
@@ -52,15 +103,20 @@ class BreedListViewController: UIViewController {
 extension BreedListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.navigationController?.pushViewController(BreedDetailViewController(), animated: true)
+        
+        let snapshot = dataSource.snapshot()
+        guard snapshot.itemIdentifiers.indices.contains(indexPath.row) else { return }
+        selection.send(snapshot.itemIdentifiers[indexPath.row].breedName)
     }
 }
 
 extension BreedListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        search.send(searchText)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        search.send("")
     }
 }
 
