@@ -7,18 +7,12 @@
 
 import UIKit
 
-protocol BreedCoordinatorType: Coordinator {
-    func presentBreedListViewController()
-    func presentBreedDetailViewController()
-    func presentBreedPhotoViewController(image: UIImage)
-}
-
 final class BreedCoordinator: BreedCoordinatorType {
     fileprivate let window: UIWindow
     fileprivate var navigationController: UINavigationController?
-    fileprivate let dependencyProvider: BreedCoordinatorDependencyProvider
+    fileprivate let dependencyProvider: BreedCoordinatorDependencyProviderType
     
-    init(window: UIWindow, dependencyProvider: BreedCoordinatorDependencyProvider) {
+    init(window: UIWindow, dependencyProvider: BreedCoordinatorDependencyProviderType) {
         self.window = window
         self.dependencyProvider = dependencyProvider
     }
@@ -28,16 +22,12 @@ final class BreedCoordinator: BreedCoordinatorType {
         window.rootViewController = navigationController
     }
 
-    func presentBreedDetailViewController() {
-        navigationController?.pushViewController(dependencyProvider.breedDetailViewController(coordinator: self), animated: true)
+    func presentBreedDetailViewController(breedNames: (main: String, sub: String)) {
+        navigationController?.pushViewController(dependencyProvider.breedDetailViewController(breedNames: breedNames, coordinator: self), animated: true)
     }
 
-    func presentBreedListViewController() {
-        navigationController?.pushViewController(dependencyProvider.breedListViewController(coordinator: self), animated: true)
-    }
-    
-    func presentBreedPhotoViewController(image: UIImage) {
-        let modalViewController = dependencyProvider.breedPhotoViewController()
+    func presentBreedPhotoViewController(imageUrl: String) {
+        let modalViewController = dependencyProvider.breedPhotoViewController(imageUrl: imageUrl)
         modalViewController.modalPresentationStyle = .overFullScreen
         window.rootViewController?.present(modalViewController, animated: true)
     }

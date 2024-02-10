@@ -8,6 +8,8 @@
 import UIKit
 
 final class BreedListCell: UITableViewCell {
+    //MARK: - Properties
+    
     static let reuseIdentifier = "BreedListCell"
     
     private let breedNameLabel: UILabel = {
@@ -15,6 +17,8 @@ final class BreedListCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    //MARK: - Life cycles
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,6 +28,8 @@ final class BreedListCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - UI setup
     
     private func setupUI() {
         contentView.addSubview(breedNameLabel)
@@ -36,7 +42,10 @@ final class BreedListCell: UITableViewCell {
         breedNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
     }
     
+    //MARK: - Configuration
+    
     func configure(item: BreedListCellItem) {
-        breedNameLabel.text = item.breedName
+        breedNameLabel.text = item.isSubBreed ? "  ► \(item.displayName)" : item.displayName
+        breedNameLabel.textColor = item.isSubBreed ? .gray : .black
     }
 }

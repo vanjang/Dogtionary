@@ -8,7 +8,5 @@
 import Foundation
 
 protocol Coordinator: AnyObject {
-
-    /// Stars the flow
     func start()
 }

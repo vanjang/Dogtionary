@@ -6,16 +6,23 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class BreedDetailCell: UICollectionViewCell {
+    //MARK: - Properties
+    
     static let reuseIdentifier = "BreedDetailCell"
     
     private let dogImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .lightGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    //MARK: - Life cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +38,8 @@ final class BreedDetailCell: UICollectionViewCell {
         dogImageView.image = nil
     }
     
+    //MARK: - UI setups
+    
     private func setupUI() {
         contentView.addSubview(dogImageView)
         
@@ -41,6 +50,16 @@ final class BreedDetailCell: UICollectionViewCell {
     }
     
     func configure(item: BreedDetailCellItem) {
-        dogImageView.image = UIImage(named: "doggys")
+        guard let url = URL(string: item.imageUrl) else { return }
+        dogImageView.kf.indicatorType = .activity
+
+        dogImageView.kf.setImage(
+            with: url,
+            options: [
+                .processor(DownsamplingImageProcessor(size: frame.size)),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(0.4)),
+                .cacheOriginalImage
+            ])
     }
 }

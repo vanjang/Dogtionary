@@ -7,5 +7,6 @@
 
 import UIKit
 
-// Here inherits as many DependencyProviders as the app grows
-protocol AppFlowCoordinatorDependencyProvider: BreedCoordinatorDependencyProvider {}
+/// Protocol defining conforming dependency providers.
+// Here conforms as many DependencyProviders as the app grows.
+protocol AppFlowCoordinatorDependencyProvider: BreedCoordinatorDependencyProviderType {}
