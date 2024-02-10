@@ -8,252 +8,35 @@
 import Foundation
 import Combine
 
-protocol BreedUseCaseType {
-    func getBreeds() -> AnyPublisher<Result<[Breed], Error>, Never>
-    func getImageUrls() -> AnyPublisher<Result<[String], Error>, Never>
-}
-
 final class BreedUseCase: BreedUseCaseType {
-    func getBreeds() -> AnyPublisher<Result<[Breed], Error>, Never> {
-        var breeds: [Breed] = []
-        
-        do {
-            let response = try JSONDecoder().decode(BreedResponse.self, from: mockData!)
-            breeds = response.toBreeds()
-        } catch {
-            print("error \(error)")
-        }
-        
-        
-        let result = CurrentValueSubject<Result<[Breed], Error>, Never>(.success(breeds))
-        
-        return result.eraseToAnyPublisher()
+    private let networkService: NetworkServiceType
+    
+    init(networkService: NetworkServiceType) {
+        self.networkService = networkService
     }
     
-    func getImageUrls() -> AnyPublisher<Result<[String], Error>, Never> {
-        Empty().eraseToAnyPublisher()
+    func fetchBreeds() -> AnyPublisher<Result<[Breed], Error>, Never> {
+        networkService.request(BreedEndpoint(path: "breeds/list/all", method: .get, parameters: nil, headers: nil))
+            .map { (response: Response<[String: [String]]>) -> Result<[Breed], Error> in
+                var breeds: [Breed] = []
+                response.message.forEach {
+                    let breed = Breed(name: $0.key, subBreeds: $0.value)
+                    breeds.append(breed)
+                }
+                return .success(breeds)
+            }
+            .catch { error -> AnyPublisher<Result<[Breed], Error>, Never> in .just(.failure(error)) }
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
+    func fetchImageUrls(path: String) -> AnyPublisher<Result<[String], Error>, Never> {
+        networkService.request(BreedEndpoint(path: "breed\(path)", method: .get, parameters: nil, headers: nil))
+            .map { (response: Response<[String]>) in .success(response.message) }
+            .catch { error -> AnyPublisher<Result<[String], Error>, Never> in .just(.failure(error)) }
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }
-
-let mockData = """
-{
-    "message": {
-        "affenpinscher": [],
-        "african": [],
-        "airedale": [],
-        "akita": [],
-        "appenzeller": [],
-        "australian": [
-            "shepherd"
-        ],
-        "basenji": [],
-        "beagle": [],
-        "bluetick": [],
-        "borzoi": [],
-        "bouvier": [],
-        "boxer": [],
-        "brabancon": [],
-        "briard": [],
-        "buhund": [
-            "norwegian"
-        ],
-        "bulldog": [
-            "boston",
-            "english",
-            "french"
-        ],
-        "bullterrier": [
-            "staffordshire"
-        ],
-        "cattledog": [
-            "australian"
-        ],
-        "chihuahua": [],
-        "chow": [],
-        "clumber": [],
-        "cockapoo": [],
-        "collie": [
-            "border"
-        ],
-        "coonhound": [],
-        "corgi": [
-            "cardigan"
-        ],
-        "cotondetulear": [],
-        "dachshund": [],
-        "dalmatian": [],
-        "dane": [
-            "great"
-        ],
-        "deerhound": [
-            "scottish"
-        ],
-        "dhole": [],
-        "dingo": [],
-        "doberman": [],
-        "elkhound": [
-            "norwegian"
-        ],
-        "entlebucher": [],
-        "eskimo": [],
-        "finnish": [
-            "lapphund"
-        ],
-        "frise": [
-            "bichon"
-        ],
-        "germanshepherd": [],
-        "greyhound": [
-            "italian"
-        ],
-        "groenendael": [],
-        "havanese": [],
-        "hound": [
-            "afghan",
-            "basset",
-            "blood",
-            "english",
-            "ibizan",
-            "plott",
-            "walker"
-        ],
-        "husky": [],
-        "keeshond": [],
-        "kelpie": [],
-        "komondor": [],
-        "kuvasz": [],
-        "labradoodle": [],
-        "labrador": [],
-        "leonberg": [],
-        "lhasa": [],
-        "malamute": [],
-        "malinois": [],
-        "maltese": [],
-        "mastiff": [
-            "bull",
-            "english",
-            "tibetan"
-        ],
-        "mexicanhairless": [],
-        "mix": [],
-        "mountain": [
-            "bernese",
-            "swiss"
-        ],
-        "newfoundland": [],
-        "otterhound": [],
-        "ovcharka": [
-            "caucasian"
-        ],
-        "papillon": [],
-        "pekinese": [],
-        "pembroke": [],
-        "pinscher": [
-            "miniature"
-        ],
-        "pitbull": [],
-        "pointer": [
-            "german",
-            "germanlonghair"
-        ],
-        "pomeranian": [],
-        "poodle": [
-            "medium",
-            "miniature",
-            "standard",
-            "toy"
-        ],
-        "pug": [],
-        "puggle": [],
-        "pyrenees": [],
-        "redbone": [],
-        "retriever": [
-            "chesapeake",
-            "curly",
-            "flatcoated",
-            "golden"
-        ],
-        "ridgeback": [
-            "rhodesian"
-        ],
-        "rottweiler": [],
-        "saluki": [],
-        "samoyed": [],
-        "schipperke": [],
-        "schnauzer": [
-            "giant",
-            "miniature"
-        ],
-        "segugio": [
-            "italian"
-        ],
-        "setter": [
-            "english",
-            "gordon",
-            "irish"
-        ],
-        "sharpei": [],
-        "sheepdog": [
-            "english",
-            "shetland"
-        ],
-        "shiba": [],
-        "shihtzu": [],
-        "spaniel": [
-            "blenheim",
-            "brittany",
-            "cocker",
-            "irish",
-            "japanese",
-            "sussex",
-            "welsh"
-        ],
-        "spitz": [
-            "japanese"
-        ],
-        "springer": [
-            "english"
-        ],
-        "stbernard": [],
-        "terrier": [
-            "american",
-            "australian",
-            "bedlington",
-            "border",
-            "cairn",
-            "dandie",
-            "fox",
-            "irish",
-            "kerryblue",
-            "lakeland",
-            "norfolk",
-            "norwich",
-            "patterdale",
-            "russell",
-            "scottish",
-            "sealyham",
-            "silky",
-            "tibetan",
-            "toy",
-            "welsh",
-            "westhighland",
-            "wheaten",
-            "yorkshire"
-        ],
-        "tervuren": [],
-        "vizsla": [],
-        "waterdog": [
-            "spanish"
-        ],
-        "weimaraner": [],
-        "whippet": [],
-        "wolfhound": [
-            "irish"
-        ]
-    },
-    "status": "success"
-}
-
-
-""".data(using: .utf8)

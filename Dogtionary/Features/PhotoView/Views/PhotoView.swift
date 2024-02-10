@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PhotoView: UIView {
+    //MARK: - Properties
+    
     let closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -23,6 +26,8 @@ final class PhotoView: UIView {
         return imageView
     }()
     
+    //MARK: - Life cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpUI()
@@ -32,6 +37,8 @@ final class PhotoView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - UI setup
     
     private func setUpUI() {
         addSubview(doggyImageView)
@@ -50,9 +57,13 @@ final class PhotoView: UIView {
         doggyImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
-    func configure(image: UIImage) {
-        doggyImageView.image = UIImage(named: "doggys")//image
+    //MARK: - Configuration
+    func configure(imageUrl: String) {
+        guard let url = URL(string: imageUrl) else { return }
+        doggyImageView.kf.setImage(with: url, options: [.cacheOriginalImage])
     }
+    
+    //MARK: - Image pinch & pan gesture setups
     
     private func setUpGestureRecognizers() {
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))

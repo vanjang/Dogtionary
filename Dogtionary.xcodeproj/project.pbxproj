@@ -31,13 +31,25 @@
 		A3F4ADE12B74E838003538D9 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE02B74E838003538D9 /* AppFlowCoordinator.swift */; };
 		A3F4ADE32B74EC2E003538D9 /* BreedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE22B74EC2E003538D9 /* BreedCoordinator.swift */; };
 		A3F4ADE52B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE42B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift */; };
-		A3F4ADE72B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift */; };
-		A3F4ADE92B74FD8F003538D9 /* BreedComponentsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE82B74FD8F003538D9 /* BreedComponentsFactory.swift */; };
+		A3F4ADE72B74FCEE003538D9 /* BreedCoordinatorDependencyProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProviderType.swift */; };
+		A3F4ADE92B74FD8F003538D9 /* BreedCoordinatorDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADE82B74FD8F003538D9 /* BreedCoordinatorDependencyProvider.swift */; };
 		A3F4ADF52B753ABF003538D9 /* BreedListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */; };
 		A3F4ADF72B758807003538D9 /* BreedDetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */; };
 		A3F4ADF92B764398003538D9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADF82B764398003538D9 /* Breed.swift */; };
 		A3F4ADFD2B765DEC003538D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADFC2B765DEC003538D9 /* String+Extension.swift */; };
 		A3F4AE002B767C8D003538D9 /* BreedUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */; };
+		A3F4AE022B768D69003538D9 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE012B768D69003538D9 /* NetworkServiceType.swift */; };
+		A3F4AE042B768D81003538D9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE032B768D81003538D9 /* NetworkService.swift */; };
+		A3F4AE062B768D99003538D9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE052B768D99003538D9 /* Endpoint.swift */; };
+		A3F4AE082B768DB1003538D9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE072B768DB1003538D9 /* HTTPMethod.swift */; };
+		A3F4AE0A2B768DE8003538D9 /* URLCache+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE092B768DE8003538D9 /* URLCache+Extension.swift */; };
+		A3F4AE0C2B768DF4003538D9 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE0B2B768DF4003538D9 /* Publisher+Extension.swift */; };
+		A3F4AE0E2B768E4D003538D9 /* BreedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE0D2B768E4D003538D9 /* BreedEndpoint.swift */; };
+		A3F4AE132B76C8E4003538D9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A3F4AE122B76C8E4003538D9 /* Kingfisher */; };
+		A3F4AE152B76D814003538D9 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE142B76D814003538D9 /* Array+Extension.swift */; };
+		A3F4AE182B77930C003538D9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE172B77930C003538D9 /* Response.swift */; };
+		A3F4AE1A2B7814B7003538D9 /* BreedUseCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE192B7814B7003538D9 /* BreedUseCaseType.swift */; };
+		A3F4AE262B7821D0003538D9 /* BreedCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4AE252B7821D0003538D9 /* BreedCoordinatorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,13 +98,24 @@
 		A3F4ADE02B74E838003538D9 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		A3F4ADE22B74EC2E003538D9 /* BreedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinator.swift; sourceTree = "<group>"; };
 		A3F4ADE42B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinatorDependencyProvider.swift; sourceTree = "<group>"; };
-		A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinatorDependencyProvider.swift; sourceTree = "<group>"; };
-		A3F4ADE82B74FD8F003538D9 /* BreedComponentsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedComponentsFactory.swift; sourceTree = "<group>"; };
+		A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinatorDependencyProviderType.swift; sourceTree = "<group>"; };
+		A3F4ADE82B74FD8F003538D9 /* BreedCoordinatorDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinatorDependencyProvider.swift; sourceTree = "<group>"; };
 		A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListViewModelType.swift; sourceTree = "<group>"; };
 		A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModelType.swift; sourceTree = "<group>"; };
 		A3F4ADF82B764398003538D9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		A3F4ADFC2B765DEC003538D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedUserCase.swift; sourceTree = "<group>"; };
+		A3F4AE012B768D69003538D9 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
+		A3F4AE032B768D81003538D9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A3F4AE052B768D99003538D9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A3F4AE072B768DB1003538D9 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		A3F4AE092B768DE8003538D9 /* URLCache+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+Extension.swift"; sourceTree = "<group>"; };
+		A3F4AE0B2B768DF4003538D9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		A3F4AE0D2B768E4D003538D9 /* BreedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedEndpoint.swift; sourceTree = "<group>"; };
+		A3F4AE142B76D814003538D9 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		A3F4AE172B77930C003538D9 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		A3F4AE192B7814B7003538D9 /* BreedUseCaseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedUseCaseType.swift; sourceTree = "<group>"; };
+		A3F4AE252B7821D0003538D9 /* BreedCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCoordinatorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F4AE132B76C8E4003538D9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +198,7 @@
 		A3F4ADB72B730086003538D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A3F4AE162B7792FE003538D9 /* Models */,
 				A3F4ADFB2B765DE4003538D9 /* Extensions */,
 				A3F4ADFA2B765DCC003538D9 /* Utils */,
 				A3F4AD852B72F85B003538D9 /* AppDelegate.swift */,
@@ -187,6 +212,10 @@
 		A3F4ADB82B730090003538D9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A3F4AE012B768D69003538D9 /* NetworkServiceType.swift */,
+				A3F4AE032B768D81003538D9 /* NetworkService.swift */,
+				A3F4AE052B768D99003538D9 /* Endpoint.swift */,
+				A3F4AE072B768DB1003538D9 /* HTTPMethod.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -204,13 +233,10 @@
 		A3F4ADBA2B7300AB003538D9 /* BreedList */ = {
 			isa = PBXGroup;
 			children = (
-				A3F4ADC82B73E2B9003538D9 /* BreedListView.swift */,
-				A3F4AD892B72F85B003538D9 /* BreedListViewController.swift */,
-				A3F4ADCA2B73E312003538D9 /* BreedListCell.swift */,
-				A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */,
-				A3F4ADCC2B73E6A4003538D9 /* BreedListViewModel.swift */,
-				A3F4ADCE2B73EA99003538D9 /* BreedListCellItem.swift */,
-				A3F4ADF82B764398003538D9 /* Breed.swift */,
+				A3F4AE1E2B781D8E003538D9 /* Views */,
+				A3F4AE1D2B781D84003538D9 /* ViewControllers */,
+				A3F4AE1C2B781D7D003538D9 /* ViewModels */,
+				A3F4AE1B2B781D74003538D9 /* Models */,
 			);
 			path = BreedList;
 			sourceTree = "<group>";
@@ -218,12 +244,10 @@
 		A3F4ADBB2B7300B2003538D9 /* BreedDetail */ = {
 			isa = PBXGroup;
 			children = (
-				A3F4ADD02B73FDAD003538D9 /* BreedDetailView.swift */,
-				A3F4ADD22B73FDBB003538D9 /* BreedDetailViewController.swift */,
-				A3F4ADD42B73FDD0003538D9 /* BreedDetailCell.swift */,
-				A3F4ADD62B73FDE0003538D9 /* BreedDetailCellItem.swift */,
-				A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */,
-				A3F4ADD82B73FDEB003538D9 /* BreedDetailViewModel.swift */,
+				A3F4AE212B781DD6003538D9 /* Views */,
+				A3F4AE202B781DCE003538D9 /* ViewControllers */,
+				A3F4AE1F2B781DC7003538D9 /* ViewModels */,
+				A3F4AE222B781DF0003538D9 /* Models */,
 			);
 			path = BreedDetail;
 			sourceTree = "<group>";
@@ -241,8 +265,8 @@
 		A3F4ADC32B73D9D8003538D9 /* PhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				A3F4ADDA2B74204E003538D9 /* PhotoViewController.swift */,
-				A3F4ADDC2B742057003538D9 /* PhotoView.swift */,
+				A3F4AE242B781E13003538D9 /* Views */,
+				A3F4AE232B781E0A003538D9 /* ViewControllers */,
 			);
 			path = PhotoView;
 			sourceTree = "<group>";
@@ -250,8 +274,9 @@
 		A3F4ADEB2B752B26003538D9 /* BreedCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift */,
-				A3F4ADE82B74FD8F003538D9 /* BreedComponentsFactory.swift */,
+				A3F4ADE62B74FCEE003538D9 /* BreedCoordinatorDependencyProviderType.swift */,
+				A3F4ADE82B74FD8F003538D9 /* BreedCoordinatorDependencyProvider.swift */,
+				A3F4AE252B7821D0003538D9 /* BreedCoordinatorType.swift */,
 				A3F4ADE22B74EC2E003538D9 /* BreedCoordinator.swift */,
 			);
 			path = BreedCoordinator;
@@ -277,6 +302,9 @@
 			isa = PBXGroup;
 			children = (
 				A3F4ADFC2B765DEC003538D9 /* String+Extension.swift */,
+				A3F4AE092B768DE8003538D9 /* URLCache+Extension.swift */,
+				A3F4AE0B2B768DF4003538D9 /* Publisher+Extension.swift */,
+				A3F4AE142B76D814003538D9 /* Array+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,9 +312,104 @@
 		A3F4ADFE2B767C75003538D9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				A3F4AE192B7814B7003538D9 /* BreedUseCaseType.swift */,
 				A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		A3F4AE162B7792FE003538D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4AE172B77930C003538D9 /* Response.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A3F4AE1B2B781D74003538D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADCE2B73EA99003538D9 /* BreedListCellItem.swift */,
+				A3F4ADF82B764398003538D9 /* Breed.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A3F4AE1C2B781D7D003538D9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADF42B753ABF003538D9 /* BreedListViewModelType.swift */,
+				A3F4ADCC2B73E6A4003538D9 /* BreedListViewModel.swift */,
+				A3F4AE0D2B768E4D003538D9 /* BreedEndpoint.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A3F4AE1D2B781D84003538D9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4AD892B72F85B003538D9 /* BreedListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3F4AE1E2B781D8E003538D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADC82B73E2B9003538D9 /* BreedListView.swift */,
+				A3F4ADCA2B73E312003538D9 /* BreedListCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A3F4AE1F2B781DC7003538D9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADF62B758807003538D9 /* BreedDetailViewModelType.swift */,
+				A3F4ADD82B73FDEB003538D9 /* BreedDetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A3F4AE202B781DCE003538D9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADD22B73FDBB003538D9 /* BreedDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3F4AE212B781DD6003538D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADD02B73FDAD003538D9 /* BreedDetailView.swift */,
+				A3F4ADD42B73FDD0003538D9 /* BreedDetailCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A3F4AE222B781DF0003538D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADD62B73FDE0003538D9 /* BreedDetailCellItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A3F4AE232B781E0A003538D9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADDA2B74204E003538D9 /* PhotoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3F4AE242B781E13003538D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4ADDC2B742057003538D9 /* PhotoView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +428,9 @@
 			dependencies = (
 			);
 			name = Dogtionary;
+			packageProductDependencies = (
+				A3F4AE122B76C8E4003538D9 /* Kingfisher */,
+			);
 			productName = Dogtionary;
 			productReference = A3F4AD822B72F85B003538D9 /* Dogtionary.app */;
 			productType = "com.apple.product-type.application";
@@ -377,6 +503,9 @@
 				Base,
 			);
 			mainGroup = A3F4AD792B72F85B003538D9;
+			packageReferences = (
+				A3F4AE112B76C8E3003538D9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A3F4AD832B72F85B003538D9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -420,7 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3F4ADE72B74FCEE003538D9 /* BreedCoordinatorDependencyProvider.swift in Sources */,
+				A3F4ADE72B74FCEE003538D9 /* BreedCoordinatorDependencyProviderType.swift in Sources */,
 				A3F4ADE12B74E838003538D9 /* AppFlowCoordinator.swift in Sources */,
 				A3F4ADD12B73FDAD003538D9 /* BreedDetailView.swift in Sources */,
 				A3F4AD8A2B72F85B003538D9 /* BreedListViewController.swift in Sources */,
@@ -428,23 +557,34 @@
 				A3F4AD862B72F85B003538D9 /* AppDelegate.swift in Sources */,
 				A3F4AD882B72F85B003538D9 /* SceneDelegate.swift in Sources */,
 				A3F4ADF72B758807003538D9 /* BreedDetailViewModelType.swift in Sources */,
+				A3F4AE152B76D814003538D9 /* Array+Extension.swift in Sources */,
+				A3F4AE1A2B7814B7003538D9 /* BreedUseCaseType.swift in Sources */,
+				A3F4AE022B768D69003538D9 /* NetworkServiceType.swift in Sources */,
 				A3F4ADD32B73FDBB003538D9 /* BreedDetailViewController.swift in Sources */,
 				A3F4ADCD2B73E6A4003538D9 /* BreedListViewModel.swift in Sources */,
 				A3F4ADD92B73FDEB003538D9 /* BreedDetailViewModel.swift in Sources */,
 				A3F4ADF52B753ABF003538D9 /* BreedListViewModelType.swift in Sources */,
+				A3F4AE042B768D81003538D9 /* NetworkService.swift in Sources */,
+				A3F4AE062B768D99003538D9 /* Endpoint.swift in Sources */,
 				A3F4AE002B767C8D003538D9 /* BreedUserCase.swift in Sources */,
 				A3F4ADCF2B73EA99003538D9 /* BreedListCellItem.swift in Sources */,
+				A3F4AE0E2B768E4D003538D9 /* BreedEndpoint.swift in Sources */,
+				A3F4AE082B768DB1003538D9 /* HTTPMethod.swift in Sources */,
 				A3F4ADFD2B765DEC003538D9 /* String+Extension.swift in Sources */,
-				A3F4ADE92B74FD8F003538D9 /* BreedComponentsFactory.swift in Sources */,
+				A3F4ADE92B74FD8F003538D9 /* BreedCoordinatorDependencyProvider.swift in Sources */,
 				A3F4ADD72B73FDE0003538D9 /* BreedDetailCellItem.swift in Sources */,
 				A3F4ADDD2B742057003538D9 /* PhotoView.swift in Sources */,
+				A3F4AE262B7821D0003538D9 /* BreedCoordinatorType.swift in Sources */,
 				A3F4ADD52B73FDD0003538D9 /* BreedDetailCell.swift in Sources */,
 				A3F4ADC92B73E2B9003538D9 /* BreedListView.swift in Sources */,
 				A3F4ADE52B74FCAF003538D9 /* AppFlowCoordinatorDependencyProvider.swift in Sources */,
 				A3F4ADCB2B73E312003538D9 /* BreedListCell.swift in Sources */,
 				A3F4ADE32B74EC2E003538D9 /* BreedCoordinator.swift in Sources */,
 				A3F4ADF92B764398003538D9 /* Breed.swift in Sources */,
+				A3F4AE0C2B768DF4003538D9 /* Publisher+Extension.swift in Sources */,
+				A3F4AE0A2B768DE8003538D9 /* URLCache+Extension.swift in Sources */,
 				A3F4ADDB2B74204E003538D9 /* PhotoViewController.swift in Sources */,
+				A3F4AE182B77930C003538D9 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +918,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A3F4AE112B76C8E3003538D9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A3F4AE122B76C8E4003538D9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3F4AE112B76C8E3003538D9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3F4AD7A2B72F85B003538D9 /* Project object */;
 }

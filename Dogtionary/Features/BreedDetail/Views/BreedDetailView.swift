@@ -8,6 +8,8 @@
 import UIKit
 
 final class BreedDetailView: UIView {
+    //MARK: - Properties
+    
     let collectionView: UICollectionView = {
         let layout: UICollectionViewCompositionalLayout = {
             UICollectionViewCompositionalLayout { (sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -38,6 +40,25 @@ final class BreedDetailView: UIView {
         return collectionView
     }()
     
+    private let loadingIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .medium)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.hidesWhenStopped = true
+        return view
+    }()
+    
+    let stateButton: UIButton = {
+       let button = UIButton()
+        button.titleLabel?.font = .systemFont(ofSize: 14)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    //MARK: - Life cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpUI()
@@ -47,13 +68,47 @@ final class BreedDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - UI setups
+    
     private func setUpUI() {
         addSubview(collectionView)
+        addSubview(stateButton)
+        addSubview(loadingIndicator)
+        
         backgroundColor = .white
         
+        stateButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        stateButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+
         collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    func updateState(_ state: BreedDetailStatus) {
+        switch state {
+        case .loading:
+            loadingIndicator.startAnimating()
+            stateButton.isHidden = true
+            collectionView.isHidden = false
+        case .success:
+            loadingIndicator.stopAnimating()
+            stateButton.isHidden = true
+            collectionView.isHidden = false
+        case .noResult:
+            loadingIndicator.stopAnimating()
+            stateButton.isHidden = false
+            stateButton.setTitle("No result found.\nTap to retry", for: .normal)
+            collectionView.isHidden = true
+        case .failure(let error):
+            loadingIndicator.stopAnimating()
+            stateButton.isHidden = false
+            stateButton.setTitle("\(error.localizedDescription).\nTap to retry", for: .normal)
+            collectionView.isHidden = true
+        }
     }
 }

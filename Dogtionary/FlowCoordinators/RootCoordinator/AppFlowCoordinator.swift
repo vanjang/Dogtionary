@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Main coordinator responsible for managing all the child coordinators.
 class AppFlowCoordinator: Coordinator {
     private let window: UIWindow
     private let dependencyProvider: AppFlowCoordinatorDependencyProvider

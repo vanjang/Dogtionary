@@ -9,15 +9,20 @@ import UIKit
 import Combine
 
 final class BreedDetailViewController: UIViewController {
+    //MARK: - Properties
+    
     private var cancellables: [AnyCancellable] = []
     private let viewModel: BreedDetailViewModelType
-    private let selection = PassthroughSubject<UIImage, Never>()
+    private let selection = PassthroughSubject<String, Never>()
+    private let appear = PassthroughSubject<Void, Never>()
     
     private lazy var baseView: BreedDetailView = {
         self.view as? BreedDetailView ?? BreedDetailView()
     }()
     
     private lazy var dataSource = makeDataSource()
+    
+    //MARK: - Life cycles
     
     init(viewModel: BreedDetailViewModelType) {
         self.viewModel = viewModel
@@ -32,6 +37,7 @@ final class BreedDetailViewController: UIViewController {
         super.viewDidLoad()
         configure()
         bind(to: viewModel)
+        notifyFetching()
     }
     
     override func loadView() {
@@ -39,18 +45,37 @@ final class BreedDetailViewController: UIViewController {
         self.view = BreedDetailView()
     }
     
+    //MARK: - Binder and configuratinos
+    
     private func bind(to viewModel: BreedDetailViewModelType) {
-        let output = viewModel.transform(input: selection.eraseToAnyPublisher())
+        let output = viewModel.connect(input: BreedDetailViewModelInput(appear: appear.eraseToAnyPublisher(),
+                                                                          selection: selection.eraseToAnyPublisher()))
         
-        output.sink { [unowned self] items in
-            self.update(with: items)
-        }
-        .store(in: &cancellables)
+        output.breedName
+            .sink { [weak self] title in
+                self?.title = title
+            }.store(in: &cancellables)
+        
+        output
+            .status
+            .sink { [unowned self] state in
+                switch state {
+                case .success(let items): self.update(with: items)
+                default: break
+                }
+                self.baseView.updateState(state)
+            }
+            .store(in: &cancellables)
+    }
+    
+    @objc func notifyFetching() {
+        appear.send(())
     }
     
     private func configure() {
         baseView.collectionView.delegate = self
         baseView.collectionView.dataSource = dataSource
+        baseView.stateButton.addTarget(self, action: #selector(notifyFetching), for: .touchUpInside)
     }
     
     deinit {
@@ -62,7 +87,7 @@ extension BreedDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let snapshot = dataSource.snapshot()
         guard snapshot.itemIdentifiers.indices.contains(indexPath.row) else { return }
-        selection.send(snapshot.itemIdentifiers[indexPath.row].image)
+        selection.send(snapshot.itemIdentifiers[indexPath.row].imageUrl)
     }
 }
 

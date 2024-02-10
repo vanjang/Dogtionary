@@ -8,10 +8,12 @@
 import UIKit
 import Combine
 
-class BreedListViewController: UIViewController {
+final class BreedListViewController: UIViewController {
+    //MARK: - Properties
+    
     private var cancellables: [AnyCancellable] = []
     private let viewModel: BreedListViewModelType
-    private let selection = PassthroughSubject<String, Never>()
+    private let selection = PassthroughSubject<BreedListCellItem, Never>()
     private let search = PassthroughSubject<String, Never>()
     private let appear = PassthroughSubject<Void, Never>()
     
@@ -27,7 +29,9 @@ class BreedListViewController: UIViewController {
         self.view as? BreedListView ?? BreedListView()
     }()
     
-    private lazy var dataSource = makeDataSource()
+    private var cellItems: [BreedListCellItem] = []
+    
+    //MARK: - Life cycles
     
     init(viewModel: BreedListViewModelType) {
         self.viewModel = viewModel
@@ -41,39 +45,40 @@ class BreedListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind(viewModel: viewModel)
+        notifyFetching()
         configure()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        notifyFetching()
-    }
-
     override func loadView() {
         super.loadView()
         self.view = BreedListView()
     }
+    
+    //MARK: - Binder & configurations
     
     private func bind(viewModel: BreedListViewModelType) {
         let input = BreedSearchViewModelInput(appear: appear.eraseToAnyPublisher(),
                                                search: search.eraseToAnyPublisher(),
                                                selection: selection.eraseToAnyPublisher())
 
-        let output = viewModel.transform(input: input)
+        let output = viewModel.connect(input: input)
 
         output.sink(receiveValue: {[unowned self] state in
-            self.updateDataSourceBy(state)
+            self.updateCellItemsBy(state)
             self.baseView.updateState(state)
         }).store(in: &cancellables)
-        
-
     }
     
-    private func updateDataSourceBy(_ state: BreedSearchState) {
+    @objc func notifyFetching() {
+        appear.send(())
+    }
+    
+    private func updateCellItemsBy(_ state: BreedListState) {
         switch state {
-        case .success(let items): update(with: items)
-        default: update(with: [])
+        case .success(let items): cellItems = items
+        default: cellItems = []
         }
+        baseView.tableView.reloadData()
     }
     
     private func configure() {
@@ -86,27 +91,21 @@ class BreedListViewController: UIViewController {
         
         // view setup
         baseView.tableView.delegate = self
-        baseView.tableView.dataSource = dataSource
+        baseView.tableView.dataSource = self//dataSource
         baseView.stateButton.addTarget(self, action: #selector(notifyFetching), for: .touchUpInside)
-    }
-    
-    @objc func notifyFetching() {
-        appear.send(())
     }
     
     deinit {
         print("BreedListViewController is deinitialised")
     }
-    
 }
 
 extension BreedListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // deselect row
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let snapshot = dataSource.snapshot()
-        guard snapshot.itemIdentifiers.indices.contains(indexPath.row) else { return }
-        selection.send(snapshot.itemIdentifiers[indexPath.row].breedName)
+        // notify cell press
+        selection.send(cellItems[indexPath.row])
     }
 }
 
@@ -120,31 +119,14 @@ extension BreedListViewController: UISearchBarDelegate {
     }
 }
 
-fileprivate extension BreedListViewController {
-    enum Section: CaseIterable {
-        case breed
+extension BreedListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BreedListCell.reuseIdentifier, for: indexPath) as? BreedListCell else { return UITableViewCell() }
+        cell.configure(item: cellItems[indexPath.row])
+        return cell
     }
     
-    func makeDataSource() -> UITableViewDiffableDataSource<Section, BreedListCellItem> {
-        return UITableViewDiffableDataSource(
-            tableView: baseView.tableView,
-            cellProvider: {  tableView, indexPath, item in
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: BreedListCell.reuseIdentifier) as? BreedListCell else {
-                    assertionFailure("Failed to dequeue \(BreedListCell.self)!")
-                    return UITableViewCell()
-                }
-                cell.configure(item: item)
-                return cell
-            }
-        )
-    }
-    
-    func update(with breed: [BreedListCellItem], animate: Bool = true) {
-        DispatchQueue.main.async {
-            var snapshot = NSDiffableDataSourceSnapshot<Section, BreedListCellItem>()
-            snapshot.appendSections(Section.allCases)
-            snapshot.appendItems(breed, toSection: .breed)
-            self.dataSource.apply(snapshot, animatingDifferences: animate)
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        cellItems.count
     }
 }

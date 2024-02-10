@@ -8,15 +8,15 @@
 import UIKit
 
 struct BreedDetailCellItem {
-    let image: UIImage
+    let imageUrl: String
 }
 
 extension BreedDetailCellItem : Hashable {
     static func ==(lhs: BreedDetailCellItem, rhs: BreedDetailCellItem) -> Bool {
-        return lhs.image == rhs.image
+        return lhs.imageUrl == rhs.imageUrl
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(image)
+        hasher.combine(imageUrl)
     }
 }
