@@ -7,13 +7,13 @@
 
 import Combine
 
-struct BreedSearchViewModelInput {
+struct BreedListViewModelInput {
     let appear: AnyPublisher<Void, Never>
     let search: AnyPublisher<String, Never>
     let selection: AnyPublisher<BreedListCellItem, Never>
 }
 
-typealias BreedSearchViewModelOuput = AnyPublisher<BreedListState, Never>
+typealias BreedListViewModelOutput = AnyPublisher<BreedListState, Never>
 
 enum BreedListState {
     case loading
@@ -23,5 +23,5 @@ enum BreedListState {
 }
 
 protocol BreedListViewModelType {
-    func connect(input: BreedSearchViewModelInput) -> BreedSearchViewModelOuput
+    func connect(input: BreedListViewModelInput) -> BreedListViewModelOutput
 }

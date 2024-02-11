@@ -22,6 +22,9 @@ final class BreedListViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = .label
         searchController.searchBar.delegate = self
+        if let searchBarTextField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            searchBarTextField.accessibilityIdentifier = AccessibilityIdentifiers.BreedList.searchTextFieldId
+        }
         return searchController
     }()
     
@@ -57,12 +60,12 @@ final class BreedListViewController: UIViewController {
     //MARK: - Binder & configurations
     
     private func bind(viewModel: BreedListViewModelType) {
-        let input = BreedSearchViewModelInput(appear: appear.eraseToAnyPublisher(),
-                                               search: search.eraseToAnyPublisher(),
-                                               selection: selection.eraseToAnyPublisher())
-
+        let input = BreedListViewModelInput(appear: appear.eraseToAnyPublisher(),
+                                            search: search.eraseToAnyPublisher(),
+                                            selection: selection.eraseToAnyPublisher())
+        
         let output = viewModel.connect(input: input)
-
+        
         output.sink(receiveValue: {[unowned self] state in
             self.updateCellItemsBy(state)
             self.baseView.updateState(state)

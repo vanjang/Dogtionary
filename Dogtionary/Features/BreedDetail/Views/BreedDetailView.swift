@@ -71,6 +71,8 @@ final class BreedDetailView: UIView {
     //MARK: - UI setups
     
     private func setUpUI() {
+        collectionView.accessibilityIdentifier = AccessibilityIdentifiers.BreedDetail.collectionViewId
+        
         addSubview(collectionView)
         addSubview(stateButton)
         addSubview(loadingIndicator)
@@ -86,7 +88,7 @@ final class BreedDetailView: UIView {
         collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func updateState(_ state: BreedDetailStatus) {

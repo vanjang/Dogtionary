@@ -41,6 +41,7 @@ final class BreedDetailCell: UICollectionViewCell {
     //MARK: - UI setups
     
     private func setupUI() {
+        accessibilityIdentifier = AccessibilityIdentifiers.BreedDetail.cellId
         contentView.addSubview(dogImageView)
         
         dogImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true

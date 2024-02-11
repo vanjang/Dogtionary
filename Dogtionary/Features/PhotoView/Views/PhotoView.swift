@@ -41,6 +41,9 @@ final class PhotoView: UIView {
     //MARK: - UI setup
     
     private func setUpUI() {
+        accessibilityIdentifier = AccessibilityIdentifiers.PhotoView.rootViewId
+        closeButton.accessibilityIdentifier = AccessibilityIdentifiers.PhotoView.closeButtonId
+        
         addSubview(doggyImageView)
         addSubview(closeButton)
         
