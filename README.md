@@ -16,6 +16,7 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 
 **Note**
 - The photos of some breed has less than 10 photos as the server database provides.
+- The photos ofPagination is not applied as the given response is very small.
 - Pagination is not applied as the given response is very small.
 
 
