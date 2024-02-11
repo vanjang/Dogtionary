@@ -4,20 +4,20 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 
 **How to install**
 
-- To run the project, just clone the [repository](https://github.com/vanjang/Dogtionary.git) and run, then you are good to go.
+- To run the project, simply clone the [repository](https://github.com/vanjang/Dogtionary.git) and run, then you are good to go.
 
 
 **Key Features**
 
-- This app consists of Breed list page and Breed detail page.
-- The breed list page lists breeds all the way down. The breed detail page displays up to 10 random photos of the selected breed.
-- You can see the detailed photo by clicking on the photo of the detail page.
+- This app consists of a Breed list page and a Breed detail page.
+- The breed list page lists breeds alphabetically. The breed detail page displays up to 10 random photos of the selected breed.
+- You can see the detailed photos by clicking on the photo on the detail page.
 - You can search breeds as you type.
 
 **Note**
 
-- The photos of some breed has less than 10 photos as the server database provides.
-- Pagination is not applied as the given response is very small.
+- Some breeds may have less than 10 photos available in the server database.
+- Pagination is not applied as the provided response is very small.
 
 
 **Tech Stack**
@@ -33,17 +33,18 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 
 **Project Structure**
 
-Basically the project is organised by features(or scenes) as I think it is more scalable structuring.
+The project is organized primarily by features (or scenes) for scalability.
+
 - Common: Files such as shared models, extensions, utils, App delegate files that are used across the project.
 - Service: Service classes such as Network layer.
-- UseCases: Defines the core usages for the features. For this small, the app this only has BreedUseCase.
+- UseCases: Defines the core usages for the features. For this small app, this only has BreedUseCase.
 - FlowCoordinators: Contains coordinators.
 - Features: Contains feature folders. Each feature folder has views, view controllers, and view models.
 
 
 **Brief System Design**
 
-The project strives to modularise the components so that it is scalable and maintainable. Protocols are actively used so that it is testable. Below is how the project is designed:
+The project strives to modularise components for scalability and maintainability. Protocols are actively used for testability. Below is how the project is designed:
 
 <img width="862" alt="Screenshot 2024-02-11 at 23 07 21" src="https://github.com/vanjang/Dogtionary/assets/54963905/d9b90e9d-2ad8-49ff-be8d-8666b8d39689">
 
