@@ -15,8 +15,8 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 - You can search breeds as you type.
 
 **Note**
-- The photos of some breed has less than 10 photos as the server database provides.
-- The photos ofPagination is not applied as the given response is very small.
+
+- The photos of some breed has less than 10 photos as the server database provides.
 - Pagination is not applied as the given response is very small.
 
 
