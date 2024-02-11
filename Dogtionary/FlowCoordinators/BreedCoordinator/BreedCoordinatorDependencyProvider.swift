@@ -9,15 +9,17 @@ import UIKit
 
 final class BreedCoordinatorDependencyProvider {
     private let service: NetworkServiceType
+    private let logic: BreedListViewModelLogic
     
-    init(service: NetworkServiceType) {
+    init(service: NetworkServiceType, logic: BreedListViewModelLogic = BreedListViewModelLogic()) {
         self.service = service
+        self.logic = logic
     }
 }
 
 extension BreedCoordinatorDependencyProvider: AppFlowCoordinatorDependencyProvider {
     func breedNavigationController(coordinator: BreedCoordinatorType) -> UINavigationController {
-        let viewModel = BreedListViewModel(useCase: BreedUseCase(networkService: service), coordinator: coordinator)
+        let viewModel = BreedListViewModel(useCase: BreedUseCase(networkService: service), coordinator: coordinator, logic: logic)
         let breedListViewController = BreedListViewController(viewModel: viewModel)
         return UINavigationController(rootViewController: breedListViewController)
     }

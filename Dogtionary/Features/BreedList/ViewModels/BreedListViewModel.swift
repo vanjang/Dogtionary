@@ -11,11 +11,13 @@ import Combine
 final class BreedListViewModel: BreedListViewModelType {
     private let useCase: BreedUseCaseType
     private let coordinator: BreedCoordinatorType
+    private let logic: BreedListViewModelLogic
     private var cancellables: [AnyCancellable] = []
 
-    init(useCase: BreedUseCaseType, coordinator: BreedCoordinatorType) {
+    init(useCase: BreedUseCaseType, coordinator: BreedCoordinatorType, logic: BreedListViewModelLogic) {
         self.useCase = useCase
         self.coordinator = coordinator
+        self.logic = logic
     }
 
     func connect(input: BreedSearchViewModelInput) -> BreedSearchViewModelOuput {
@@ -30,9 +32,7 @@ final class BreedListViewModel: BreedListViewModelType {
         
         input.selection
             .sink { [unowned self] selectedBreed in
-                let main: String = selectedBreed.mainBreedName?.lowercased() ?? ""
-                let sub: String = selectedBreed.isSubBreed ? selectedBreed.displayName.lowercased() : ""
-                self.coordinator.presentBreedDetailViewController(breedNames: (main: main, sub: sub))
+                self.coordinator.presentBreedDetailViewController(breedNames: self.logic.getBreedNamesForFetchingImageUrls(from: selectedBreed))
             }
             .store(in: &cancellables)
         
@@ -42,23 +42,11 @@ final class BreedListViewModel: BreedListViewModelType {
         
         let state = Publishers.Merge(result.map { _ in "" }, searchInput)
             .combineLatest(result)
-            .map { (keyword: String, result) -> BreedListState in
+            .map { [unowned self] (keyword: String, result) -> BreedListState in
                 switch result {
                 case .success(let breeds) where breeds.isEmpty: return .noResults
                 case .success(let breeds):
-                    let cellItems = breeds.sorted { $0.name < $1.name }
-                        .flatMap { breed -> [BreedListCellItem] in
-                            // Some breeds have only one sub-breed and it is the same with the main breed. In that case, only shows the main breed.
-                            if breed.subBreeds.count <= 1 {
-                                return [BreedListCellItem(displayName: breed.name.capitalizedFirstLetter(), isSubBreed: false, mainBreedName: breed.name)]
-                            } else {
-                                let mainBreedItem = BreedListCellItem(displayName: breed.name.capitalizedFirstLetter(), isSubBreed: false, mainBreedName: breed.name)
-                                let subBreedItems = breed.subBreeds.map {
-                                    BreedListCellItem(displayName: $0.capitalizedFirstLetter(), isSubBreed: true, mainBreedName: breed.name)
-                                }
-                                return [mainBreedItem] + subBreedItems
-                            }
-                        }
+                    let cellItems = self.logic.getBreedListCellItems(from: breeds)
                         .filter { item in
                             keyword.isEmpty || (item.displayName.range(of: keyword, options: .caseInsensitive) != nil)
                         }
