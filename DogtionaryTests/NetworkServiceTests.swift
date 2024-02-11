@@ -80,7 +80,7 @@ final class NetworkServiceTests: XCTestCase {
         XCTAssertEqual(breeds.count, 20)
     }
 
-    func testLoadFailedWithInternalError() {
+    func testLoadFailedWithError() {
         // Given
         var result: Result<[Breed], Error>?
         let expectation = self.expectation(description: "networkServiceExpectation")

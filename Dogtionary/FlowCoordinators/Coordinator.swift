@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// High-level coordinator interface.
 protocol Coordinator: AnyObject {
     func start()
 }

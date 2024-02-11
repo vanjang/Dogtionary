@@ -33,7 +33,7 @@ final class BreedListViewUITests: XCTestCase {
         XCTAssert(navBarTitle.exists, "The navigationBar title should be \(title)")
     }
     
-    func testCollectionViewRowCellCount() throws {
+    func testTableViewViewRowCellCount() throws {
         // GIVEN
         try? waitForTableViewToLoad()
         

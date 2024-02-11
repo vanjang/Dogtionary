@@ -35,7 +35,6 @@ final class BreedListView: UIView {
         return button
     }()
     
-
     //MARK: - Life cycles
     
     override init(frame: CGRect) {
@@ -68,6 +67,8 @@ final class BreedListView: UIView {
         tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
+    
+    //MARK: - Update UI
     
     func updateState(_ state: BreedListState) {
         switch state {

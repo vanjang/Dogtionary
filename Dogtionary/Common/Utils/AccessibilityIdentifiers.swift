@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Identifiers for UI Testing
 public struct AccessibilityIdentifiers {
     public struct BreedList {
         public static let tableViewViewId = "\(BreedList.self).tableViewViewId"
