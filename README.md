@@ -45,6 +45,5 @@ Basically the project is organised by features(or scenes) as I think it is more 
 
 The project strives to modularise the components so that it is scalable and maintainable. Protocols are actively used so that it is testable. Below is how the project is designed:
 
-[system design diagram.pdf](https://github.com/vanjang/Dogtionary/files/14234382/system.design.diagram.pdf)
-
+<img width="862" alt="Screenshot 2024-02-11 at 23 07 21" src="https://github.com/vanjang/Dogtionary/assets/54963905/d9b90e9d-2ad8-49ff-be8d-8666b8d39689">
 
