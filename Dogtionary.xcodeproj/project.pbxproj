@@ -222,7 +222,7 @@
 				A3F4AD932B72F85D003538D9 /* Info.plist */,
 				A3F4ADB72B730086003538D9 /* Common */,
 				A3F4ADB82B730090003538D9 /* Services */,
-				A3F4ADFE2B767C75003538D9 /* UseCase */,
+				A3F4ADFE2B767C75003538D9 /* UseCases */,
 				A3F4ADC22B73D654003538D9 /* FlowCoordinators */,
 				A3F4ADB92B730099003538D9 /* Features */,
 			);
@@ -370,13 +370,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A3F4ADFE2B767C75003538D9 /* UseCase */ = {
+		A3F4ADFE2B767C75003538D9 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				A3F4AE192B7814B7003538D9 /* BreedUseCaseType.swift */,
 				A3F4ADFF2B767C8D003538D9 /* BreedUserCase.swift */,
 			);
-			path = UseCase;
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		A3F4AE162B7792FE003538D9 /* Models */ = {
