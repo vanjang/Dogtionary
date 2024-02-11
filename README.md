@@ -39,3 +39,16 @@ Basically the project is organised by features(or scenes) as I think it is more 
 - UseCases: Defines the core usages for the features. For this small, the app this only has BreedUseCase.
 - FlowCoordinators: Contains coordinators.
 - Features: Contains feature folders. Each feature folder has views, view controllers, and view models.
+
+
+**Brief System Design**
+
+The project strives to modularise the components so that it is scalable and maintainable. Protocols are actively used so that it is testable. Below is how the project is designed:
+
+  
+
+
+
+
+
+
