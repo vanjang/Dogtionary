@@ -14,6 +14,7 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 - You can see the detailed photos by clicking on the photo on the detail page.
 - You can search breeds as you type.
 
+
 **Note**
 
 - Some breeds may have less than 10 photos available in the server database.
@@ -28,6 +29,10 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 - MVVM-C
 - Unit Testing
 - UI Testing
+
+
+**Libraries in use**
+
 - Kingfisher library is imported for displaying remote images
 
 
