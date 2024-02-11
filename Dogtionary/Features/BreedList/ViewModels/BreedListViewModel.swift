@@ -20,7 +20,7 @@ final class BreedListViewModel: BreedListViewModelType {
         self.logic = logic
     }
 
-    func connect(input: BreedSearchViewModelInput) -> BreedSearchViewModelOuput {
+    func connect(input: BreedListViewModelInput) -> BreedListViewModelOutput {
         let fetch = input.appear.share()
         
         let result = fetch

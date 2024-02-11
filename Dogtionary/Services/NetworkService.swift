@@ -9,6 +9,12 @@ import Foundation
 import Combine
 
 struct NetworkService: NetworkServiceType {
+    private let session: URLSession
+    
+    init(session: URLSession = URLSession(configuration: URLSessionConfiguration.default)) {
+        self.session = session
+    }
+    
     func request<T: Decodable>(_ endpoint: Endpoint) -> AnyPublisher<T, Error> {
         guard let url = URL(string: "\(endpoint.baseURL)\(endpoint.path)") else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
@@ -38,8 +44,15 @@ struct NetworkService: NetworkServiceType {
                 .eraseToAnyPublisher()
         }
         
-       return URLSession.shared.dataTaskPublisher(for: request)
+       return session.dataTaskPublisher(for: request)
             .cache(using: URLCache.shared, for: request, with: T.self)
             .eraseToAnyPublisher()
     }
+}
+
+enum NetworkError: Error {
+    case invalidRequest
+    case invalidResponse
+    case dataLoadingError(statusCode: Int, data: Data)
+    case jsonDecodingError(error: Error)
 }
