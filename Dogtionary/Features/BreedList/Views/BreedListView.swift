@@ -50,6 +50,8 @@ final class BreedListView: UIView {
     //MARK: - UI setups
     
     private func setupUI() {
+        tableView.accessibilityIdentifier = AccessibilityIdentifiers.BreedList.tableViewViewId
+        
         addSubview(tableView)
         addSubview(stateButton)
         addSubview(loadingIndicator)

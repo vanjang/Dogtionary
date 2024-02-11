@@ -71,6 +71,8 @@ final class BreedDetailView: UIView {
     //MARK: - UI setups
     
     private func setUpUI() {
+        collectionView.accessibilityIdentifier = AccessibilityIdentifiers.BreedDetail.collectionViewId
+        
         addSubview(collectionView)
         addSubview(stateButton)
         addSubview(loadingIndicator)
