@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-/// Protocol defining the core use cases for the Dog breed API.
+/// Protocol defining the core use cases for the Dog  APIs.
 protocol BreedUseCaseType {
     func fetchBreeds() -> AnyPublisher<Result<[Breed], Error>, Never>
     func fetchImageUrls(path: String) -> AnyPublisher<Result<[String], Error>, Never>

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/// Network layer that caches URL responses automatically for better performance and UX.
 struct NetworkService: NetworkServiceType {
     private let session: URLSession
     
@@ -48,11 +49,4 @@ struct NetworkService: NetworkServiceType {
             .cache(using: URLCache.shared, for: request, with: T.self)
             .eraseToAnyPublisher()
     }
-}
-
-enum NetworkError: Error {
-    case invalidRequest
-    case invalidResponse
-    case dataLoadingError(statusCode: Int, data: Data)
-    case jsonDecodingError(error: Error)
 }

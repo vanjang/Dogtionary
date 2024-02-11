@@ -91,6 +91,8 @@ final class BreedDetailView: UIView {
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
+    //MARK: - Update UI
+    
     func updateState(_ state: BreedDetailStatus) {
         switch state {
         case .loading:
