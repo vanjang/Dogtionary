@@ -38,10 +38,10 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 
 **Project Structure**
 
-The project is organized primarily by features (or scenes) for scalability.
+The project is organised primarily by features (or scenes) for scalability.
 
 - Common: Files such as shared models, extensions, utils, App delegate files that are used across the project.
-- Service: Service classes such as Network layer.
+- Services: Service classes such as Network layer.
 - UseCases: Defines the core usages for the features. For this small app, this only has BreedUseCase.
 - FlowCoordinators: Contains coordinators.
 - Features: Contains feature folders. Each feature folder has views, view controllers, and view models.
