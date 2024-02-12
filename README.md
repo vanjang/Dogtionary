@@ -44,7 +44,7 @@ The project is organised primarily by features (or scenes) for scalability.
 - Services: Service classes such as Network layer.
 - UseCases: Defines the core usages for the features. For this small app, this only has BreedUseCase.
 - FlowCoordinators: Contains coordinators.
-- Features: Contains feature folders. Each feature folder has views, view controllers, and view models.
+- Features: Contains feature folders. Each feature folder has views, view controllers, and view models, where applicable.
 
 
 **Brief System Design**
