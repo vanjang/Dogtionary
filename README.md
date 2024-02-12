@@ -9,7 +9,7 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 
 **Key Features**
 
-- This app consists of a Breed list page and a Breed detail page.
+- This app consists of a Breed list page and a Breed detail page.
 - The breed list page lists breeds alphabetically. The breed detail page displays up to 10 random photos of the selected breed.
 - You can see the detailed photos by clicking on the photo on the detail page.
 - You can search breeds as you type.
@@ -33,7 +33,7 @@ Looking at doggy photos is always a happy thing, and you can do exactly that wit
 
 **Libraries in use**
 
-- Kingfisher library is imported for displaying remote images
+- Kingfisher library is imported for displaying remote images.
 
 
 **Project Structure**
