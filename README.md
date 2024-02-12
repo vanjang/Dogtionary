@@ -1,6 +1,6 @@
 # Dogtionary
 
-Looking at doggy photos is always a happy thing, and you can do exactly that with Dogtionary! Thanks to a stunning [Dog API(https://dog.ceo/dog-api/)], this app provides a list of dog breeds along with their random photos in the form of a simple but user-friendly interface.
+Looking at doggy photos is always a happy thing, and you can do exactly that with Dogtionary! Thanks to a stunning [Dog API](https://dog.ceo/dog-api/), this app provides a list of dog breeds along with their random photos in the form of a simple but user-friendly interface.
 
 **How to install**
 
